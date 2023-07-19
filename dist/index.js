@@ -10,22 +10,22 @@ const s = () => {
   });
 };
 r();
-const l = (a, c, o = 3e3) => {
-  switch (t.textContent = a, t.classList.add("show"), c) {
+const n = (a, o, c = 3e3) => {
+  switch (t.textContent = a, o) {
     case "success":
-      t.setAttribute("class", "web-toast success");
+      t.setAttribute("class", "web-toast success show");
       break;
     case "error":
-      t.setAttribute("class", "web-toast error");
+      t.setAttribute("class", "web-toast error show");
       break;
     case "warning":
-      t.setAttribute("class", "web-toast warning");
+      t.setAttribute("class", "web-toast warning show");
       break;
     default:
-      t.setAttribute("class", "web-toast success");
+      t.setAttribute("class", "web-toast success show");
   }
-  e && clearInterval(e), e = setTimeout(s, o);
+  e && clearInterval(e), e = setTimeout(s, c);
 };
 export {
-  l as default
+  n as default
 };

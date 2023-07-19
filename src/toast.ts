@@ -19,20 +19,19 @@ removeElemOnClick();
 
 const showToast = (message: string, level?: string, duration = 3000) => {
     toastElem.textContent = message;
-    toastElem.classList.add('show');
 
     switch (level) {
         case 'success':
-            toastElem.setAttribute('class', 'web-toast success');
+            toastElem.setAttribute('class', 'web-toast success show');
             break;
         case 'error':
-            toastElem.setAttribute('class', 'web-toast error');
+            toastElem.setAttribute('class', 'web-toast error show');
             break;
         case 'warning':
-            toastElem.setAttribute('class', 'web-toast warning');
+            toastElem.setAttribute('class', 'web-toast warning show');
             break;
         default:
-            toastElem.setAttribute('class', 'web-toast success');
+            toastElem.setAttribute('class', 'web-toast success show');
     }
 
     if (timeOut) {

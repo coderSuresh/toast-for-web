@@ -1,5 +1,4 @@
 .web-toast {
-    background-color: green;
     color: #ffffff;
     padding: 10px;
     position: fixed;
@@ -12,4 +11,17 @@
 
 .web-toast.show {
     right: 20px;
+}
+
+.web-toast.success {
+    background-color: rgb(23, 126, 23);
+}
+
+.web-toast.error {
+    background-color: rgb(150, 18, 18);
+}
+
+.web-toast.warning {
+    background-color: rgb(231, 231, 104);
+    color: #0f0f0f;
 }

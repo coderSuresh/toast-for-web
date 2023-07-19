@@ -48,7 +48,7 @@ showToast(message, level, duration);
 
   <body>
     <button id="info-toast">Info Toast</button>
-    <button id="warinig-toast">Warning Toast</button>
+    <button id="warning-toast">Warning Toast</button>
     <button id="error-toast">Error Toast</button>
   </body>
 </html>

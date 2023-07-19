@@ -2,7 +2,11 @@
   "name": "web-toast",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.ts",
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
   "license": "MIT",
   "description": "A simple toast component for the web",
   "scripts": {

@@ -57,7 +57,7 @@ showToast(message, level, duration);
 `index.js`
 
 ```js
-import showToast from "toast-for-web";
+import showToast from "./node_modules/toast-for-web/dist/index.js";
 
 const infoToast = document.getElementById("info-toast");
 const warningToast = document.getElementById("warning-toast");

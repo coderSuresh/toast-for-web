@@ -9,6 +9,10 @@
   ],
   "license": "MIT",
   "description": "A simple toast component for the web",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderSuresh/web-toast"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

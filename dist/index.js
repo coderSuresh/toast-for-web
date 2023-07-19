@@ -1,31 +1,31 @@
-const s = document.createElement("p");
-s.classList.add("web-toast");
-document.body.appendChild(s);
+const t = document.createElement("p");
+t.classList.add("web-toast");
+document.body.appendChild(t);
 let e;
-const t = () => {
-  s.classList.remove("show");
-}, d = () => {
-  s.addEventListener("click", () => {
-    t();
+const s = () => {
+  t.classList.remove("show");
+}, r = () => {
+  t.addEventListener("click", () => {
+    s();
   });
 };
-d();
-const r = (a, c, o = 3e3) => {
-  switch (s.textContent = a, s.classList.add("show"), c) {
+r();
+const l = (a, c, o = 3e3) => {
+  switch (t.textContent = a, t.classList.add("show"), c) {
     case "success":
-      s.classList.add("success");
+      t.setAttribute("class", "web-toast success");
       break;
     case "error":
-      s.classList.add("error");
+      t.setAttribute("class", "web-toast error");
       break;
     case "warning":
-      s.classList.add("warning");
+      t.setAttribute("class", "web-toast warning");
       break;
     default:
-      s.classList.add("success");
+      t.setAttribute("class", "web-toast success");
   }
-  e && clearInterval(e), e = setTimeout(t, o);
+  e && clearInterval(e), e = setTimeout(s, o);
 };
 export {
-  r as default
+  l as default
 };

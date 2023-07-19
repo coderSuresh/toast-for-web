@@ -23,16 +23,16 @@ const showToast = (message: string, level?: string, duration = 3000) => {
 
     switch (level) {
         case 'success':
-            toastElem.classList.add('success');
+            toastElem.setAttribute('class', 'web-toast success');
             break;
         case 'error':
-            toastElem.classList.add('error');
+            toastElem.setAttribute('class', 'web-toast error');
             break;
         case 'warning':
-            toastElem.classList.add('warning');
+            toastElem.setAttribute('class', 'web-toast warning');
             break;
         default:
-            toastElem.classList.add('success')
+            toastElem.setAttribute('class', 'web-toast success');
     }
 
     if (timeOut) {

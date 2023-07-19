@@ -7,10 +7,9 @@
     right: -100%;
     z-index: 9999;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease-in-out;
 }
 
 .web-toast.show {
-    transition: right 0.5s ease-in-out;
     right: 20px;
 }

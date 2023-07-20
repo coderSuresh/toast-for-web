@@ -9,6 +9,7 @@ That means, you can show an element with a message in your web application, whic
 - Show toast messages in your web application easily
 - Show toast messages with different levels
 - Show toast messages with different durations
+- Click on the toast to dismiss it
 
 ## Installation
 
@@ -28,7 +29,7 @@ showToast(message, level, duration);
 | Parameter | Type   | Description                                                        |
 | --------- | ------ | ------------------------------------------------------------------ |
 | message   | string | Message to show in the toast                                       |
-| level     | string | Level of the toast, can be `info`, `success`, `warning` or `error` |
+| level     | string | Level of the toast, can be `success`, `warning` or `error` |
 | duration  | number | Duration of the toast in milliseconds                              |
 
 ## Example
@@ -47,7 +48,7 @@ showToast(message, level, duration);
   </head>
 
   <body>
-    <button id="info-toast">Info Toast</button>
+    <button id="success-toast">Success Toast</button>
     <button id="warning-toast">Warning Toast</button>
     <button id="error-toast">Error Toast</button>
   </body>
@@ -59,12 +60,12 @@ showToast(message, level, duration);
 ```js
 import showToast from "./node_modules/toast-for-web/dist/index.js";
 
-const infoToast = document.getElementById("info-toast");
+const successToast = document.getElementById("success-toast");
 const warningToast = document.getElementById("warning-toast");
 const errorToast = document.getElementById("error-toast");
 
 document.addEventListener("click", (event) => {
-  if (event.target === infoToast)
+  if (event.target === successToast)
     showToast("This is an info toast", "info", 3000);
 
   if (event.target === warningToast)

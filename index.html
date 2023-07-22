@@ -10,6 +10,9 @@
   <title>Toast for Web | CoderSuresh</title>
   <link rel="stylesheet" href="./dist/style.css" />
 
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
   <!-- styles -->
   <style>
     * {
@@ -22,6 +25,8 @@
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       font-size: 1rem;
+      max-height: 1440px;
+      margin: auto;
     }
 
     h1 {
@@ -35,11 +40,18 @@
 
     main {
       padding: 20px 50px;
+      margin-top: 40px;
     }
 
     .flex {
       display: flex;
+      gap: 10px;
       align-items: center;
+      justify-content: center;
+    }
+
+    .items-start {
+      align-items: flex-start;
     }
 
     .flex-col {
@@ -57,7 +69,6 @@
 
     .toast-option {
       flex-direction: row-reverse;
-      gap: 10px;
       margin-bottom: 20px;
     }
 
@@ -69,7 +80,7 @@
       padding: 10px;
       border-radius: 5px;
       border: 1px solid rgb(56, 66, 75, 0.3);
-      margin: 10px 0 20px 0;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -85,6 +96,40 @@
     .btn:hover {
       outline: 4px solid rgba(56, 66, 75, 0.288);
     }
+
+    .left-container {
+      width: 30%;
+    }
+
+    .right-container {
+      width: 70%;
+    }
+
+    code {
+      overflow-x: scroll;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+      }
+
+      .left-container {
+        width: 100%;
+      }
+
+      .right-container {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      header,
+      main {
+        padding: 20px;
+      }
+    }
   </style>
 
 </head>
@@ -97,11 +142,10 @@
     <a href="https://github.com/coderSuresh/toast-for-web">
       <img src="https://img.shields.io/github/stars/coderSuresh/toast-for-web?style=social" alt="github stars" />
     </a>
-
   </header>
 
-  <main>
-    <div class="container">
+  <main class="flex items-start">
+    <div class="left-container">
       <h3 class="toast-types">Select Toast Types:</h3>
 
       <div class="toast-option flex w-fit">
@@ -126,15 +170,35 @@
 
       <button id="btn-toaster" class="btn">Show Toast</button>
     </div>
+
+    <div class="right-container">
+      <h3>Code:</h3>
+      <pre>
+        <code class="language-javascript">
+import showToast from './dist/index.js'
+
+const btnToaster = document.getElementById("btn-toaster")
+
+btnToaster.addEventListener('click', () => {
+  const time = document.getElementById("time-input").value
+  const toastType = document.querySelector('input[name="toast-type"]:checked').value
+
+  showToast("Successfully Done", toastType, time ? time : 3000)
+})
+        </code>
+      </pre>
+    </div>
   </main>
 
   <script type="module">
+
+    hljs.highlightAll(); // highlight code
+
     import showToast from './dist/index.js'
 
     const btnToaster = document.getElementById("btn-toaster")
 
     btnToaster.addEventListener('click', () => {
-      console.log("clicked")
       const time = document.getElementById("time-input").value
       const toastType = document.querySelector('input[name="toast-type"]:checked').value
 

@@ -194,8 +194,9 @@
         <i class="far fa-copy"></i>
       </button>
       <h3>Code:</h3>
-      <pre>
-        <code class="language-javascript">
+      <div class="code-container">
+        <pre>
+                <code class="language-javascript">
 import showToast from './dist/index.js'
 
 const btnToaster = document.getElementById("btn-toaster")
@@ -204,10 +205,11 @@ btnToaster.addEventListener('click', () => {
   const time = document.getElementById("time-input").value
   const toastType = document.querySelector('input[name="toast-type"]:checked').value
 
-  showToast("Successfully Done", toastType, time ? time : 3000)
+  showToast("Successfully Done", "success", 3000)
 })
-        </code>
-      </pre>
+                </code>
+              </pre>
+      </div>
     </div>
   </main>
 
@@ -218,6 +220,11 @@ btnToaster.addEventListener('click', () => {
     import showToast from './dist/index.js'
 
     const btnToaster = document.getElementById("btn-toaster")
+    const copyBtn = document.querySelector('.copy-btn')
+    const code = document.querySelector('code')
+    const checkbox = document.querySelectorAll('.checkbox')
+    const timeInput = document.getElementById("time-input")
+    const toastTypes = document.querySelectorAll('input[name="toast-type"]')
 
     btnToaster.addEventListener('click', () => {
       const time = document.getElementById("time-input").value
@@ -225,6 +232,41 @@ btnToaster.addEventListener('click', () => {
 
       showToast("Successfully Done", toastType, time ? time : 3000)
     })
+
+    copyBtn.addEventListener('click', () => {
+      const code = document.querySelector('code')
+      const text = code.innerText
+      try {
+        navigator.clipboard.writeText(text)
+        showToast("Copied to clipboard", "success")
+      }
+      catch (err) {
+        showToast("Something went wrong", "error")
+      }
+    })
+
+    const updateCode = () => {
+      const showToastFunc = code.textContent.split("showToast(")[1].split(')')[0].split(',')
+
+      const currentType = showToastFunc[1]
+      const currentTime = showToastFunc[2]
+
+      const toastType = document.querySelector('input[name="toast-type"]:checked').value
+      const time = timeInput.value ? timeInput.value : 3000
+
+      let newCode = code.innerText
+      newCode = newCode.replace(currentType, `'${toastType}'`)
+      newCode = newCode.replace(currentTime, time)
+      code.innerHTML = newCode
+
+      hljs.highlightAll()
+    }
+
+    toastTypes.forEach((item) => {
+      item.addEventListener('click', updateCode)
+    })
+
+    timeInput.addEventListener('keyup', updateCode)
   </script>
 </body>
 

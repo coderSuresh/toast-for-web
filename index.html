@@ -4,19 +4,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Toast test</title>
+  <meta name="author" content="CoderSuresh" />
+  <meta name="description"
+    content="Toast for Web is a simple toast package for web applications. You can use this package to implement toast easily. Try now." />
+  <title>Toast for Web | CoderSuresh</title>
   <link rel="stylesheet" href="./dist/style.css" />
+
+  <!-- styles -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: none;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    header {
+      border-bottom: 2px solid rgb(56, 66, 75, 0.3);
+      padding: 20px 50px;
+    }
+
+    main {
+      padding: 20px 50px;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .flex-col {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .w-fit {
+      width: fit-content;
+    }
+
+    .toast-option {
+      flex-direction: row-reverse;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .toast-types {
+      margin-bottom: 20px;
+    }
+
+    #time-input {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid rgb(56, 66, 75, 0.3);
+      margin: 10px 0 20px 0;
+    }
+
+    .btn {
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: rgb(56, 66, 75);
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      outline: 4px solid rgba(56, 66, 75, 0.288);
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <div class="web-toast-container"></div>
+  <header class="flex justify-between">
+    <h1>Toast for Web</h1>
 
-  <center>
-    <button id="btn-toaster">
-      Click here
-    </button>
-  </center>
+    <a href="https://github.com/coderSuresh/toast-for-web">
+      <img src="https://img.shields.io/github/stars/coderSuresh/toast-for-web?style=social" alt="github stars" />
+    </a>
+
+  </header>
+
+  <main>
+    <div class="container">
+      <h3 class="toast-types">Select Toast Types:</h3>
+
+      <div class="toast-option flex w-fit">
+        <label for="success">Success</label>
+        <input type="radio" name="toast-type" value="success" id="success" class="checkbox" checked />
+      </div>
+
+      <div class="toast-option flex w-fit">
+        <label for="error">Error</label>
+        <input type="radio" name="toast-type" value="error" id="error" class="checkbox" />
+      </div>
+
+      <div class="toast-option flex w-fit">
+        <label for="warning">Warning</label>
+        <input type="radio" name="toast-type" value="warning" id="warning" class="checkbox" />
+      </div>
+
+      <div class="flex flex-col w-fit">
+        <label for="time-input">Time (ms)</label>
+        <input type="text" id="time-input" placeholder="3000" />
+      </div>
+
+      <button id="btn-toaster" class="btn">Show Toast</button>
+    </div>
+  </main>
 
   <script type="module">
     import showToast from './dist/index.js'
@@ -24,7 +134,11 @@
     const btnToaster = document.getElementById("btn-toaster")
 
     btnToaster.addEventListener('click', () => {
-      showToast("Successfully made a package")
+      console.log("clicked")
+      const time = document.getElementById("time-input").value
+      const toastType = document.querySelector('input[name="toast-type"]:checked').value
+
+      showToast("Scuessfully Done", toastType, time ? time : 3000)
     })
   </script>
 </body>

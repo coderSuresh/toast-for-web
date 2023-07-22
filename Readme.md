@@ -1,5 +1,8 @@
 # Toast for Web
 
+[![npm version](https://badge.fury.io/js/toast-for-web.svg)](https://badge.fury.io/js/toast-for-web)
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+
 Show toast messages in your web application easily, with a simple package.
 
 That means, you can show an element with a message in your web application, which will disappear after a certain amount of time.

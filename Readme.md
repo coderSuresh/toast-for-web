@@ -23,7 +23,7 @@ npm i toast-for-web
 ## Usage
 
 ```js
-import showToast from "https://unpkg.com/toast-for-web@1.0.3/dist/index.js";
+import showToast from "https://unpkg.com/toast-for-web@1.0.4/dist/index.js";
 showToast(message, level, duration);
 ```
 
@@ -46,7 +46,7 @@ showToast(message, level, duration);
     <meta charset="UTF-8" />
     <title>Toast for Web</title>
     <!-- CSS and JavaScript for the package -->
-    <link rel="stylesheet" href="https://unpkg.com/toast-for-web@1.0.3/dist/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/toast-for-web@1.0.4/dist/style.css" />
     <script type="module" src="index.js"></script>
   </head>
 
@@ -61,7 +61,7 @@ showToast(message, level, duration);
 `index.js`
 
 ```js
-import showToast from "https://unpkg.com/toast-for-web@1.0.3/dist/index.js";
+import showToast from "https://unpkg.com/toast-for-web@1.0.4/dist/index.js";
 
 const successToast = document.getElementById("success-toast");
 const warningToast = document.getElementById("warning-toast");
